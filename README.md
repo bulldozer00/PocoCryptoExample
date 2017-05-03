@@ -11,6 +11,6 @@ $ cd PocoCryptoExample
 
 $ git clone https://github.com/bulldozer00/PocoCryptoExample.git
 
-In Eclipse, select File/Import/General "import an existing project workspace". After the immport, right-click on the project
-root directory and select "build"
+In Eclipse, select File/Import/General "import an existing project workspace". After the immport, right-click on the project root directory and select "build"
 
+The project depends on linking to PocoCrypto and PocoFoundation. It is also compiled as a cpp catch unit test executable. Ensure that Phil Nash's catch.hpp is in one of your include directory path (e.g. /usr/local/include) 
