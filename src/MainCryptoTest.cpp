@@ -18,7 +18,7 @@ TEST_CASE( "Crypto", "[Top]" ) {
 
   namespace pc = Poco::Crypto;
 
-  //Global-wide init the lib
+  //Global-wide lib init (inits openssl)
   pc::initializeCrypto();
 
   //Get a handle to the default factory
@@ -29,8 +29,8 @@ TEST_CASE( "Crypto", "[Top]" ) {
   //we will be creating
   pc::CipherKey* cypherKey{};
   try {
-    pc::CipherKey cypherKeyObj{"aes-256"};
-    cypherKey = &cypherKeyObj;
+    pc::CipherKey cKey{"aes-256"};
+    cypherKey = &cKey;
   }
   catch(Poco::Exception& e) {
     std::cerr << "Caught an exception during "
