@@ -1,7 +1,6 @@
 //============================================================================
 // Name        : MainCryptoTest.cpp
-// Author      :
-// Version     :
+// Author      : bulldozer00.com
 //============================================================================
 // This tells Catch to provide a main() -
 // only do this in one cpp file
@@ -11,6 +10,7 @@
 #include "catch.hpp"
 #include "Poco/Crypto/Crypto.h"
 #include "Poco/Crypto/CipherKey.h"
+#include "Poco/Crypto/Cipher.h"
 #include "Poco/Crypto/CipherFactory.h"
 #include "Poco/Exception.h"
 

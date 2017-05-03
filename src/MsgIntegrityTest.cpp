@@ -1,9 +1,6 @@
 //============================================================================
-// Name        : MainCryptoTest.cpp
-// Author      :
-// Version     :
-// Copyright   : Your copyright notice
-// Description : Hello World in C++, Ansi-style
+// Name        : MsgIntegrityTest.cpp
+// Author      : bulldozer00.com
 //============================================================================
 
 #include "catch.hpp"
@@ -31,7 +28,8 @@ TEST_CASE( "Integrity", "[Tl]" ) {
   //Global-wide init the lib
   pc::initializeCrypto();
 
-  //Create the participants
+  //Create the sender-receiver participants
+  //in the scenario
   Sender msgSender { };
   Recipient msgRecipient { };
 
@@ -40,11 +38,18 @@ TEST_CASE( "Integrity", "[Tl]" ) {
   std::cout << "message to send = "
             << text << "\n\n";
 
+  //Compute the fingerprint and then send the message + fingerprint
+  //pair to the recipient
   bool success = msgSender.sendChannelMsg(text, msgRecipient);
+
   printTransactionResult(success);
 
+  //Maliciously change the message content - without
+  //touching the fingerprint computed on the original untampered
+  //message
   text = "You owe me $10,000";
   success = msgSender.sendAlteredChannelMsg(text, msgRecipient);
+
   printTransactionResult(success);
 
   pc::uninitializeCrypto();

@@ -1,9 +1,6 @@
 //============================================================================
 // Name        : Sha1EngineTest.cpp
-// Author      :
-// Version     :
-// Copyright   : Your copyright notice
-// Description : Hello World in C++, Ansi-style
+// Author      : bulldozer00.com
 //============================================================================
 
 #include "catch.hpp"
