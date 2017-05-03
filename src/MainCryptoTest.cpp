@@ -38,7 +38,7 @@ TEST_CASE( "Crypto", "[Top]" ) {
               << e.displayText() << "\n";
   }
 
-  //Create the Cipher device
+  //Since we have a key, we can create the Cipher device
   pc::Cipher* cipherBox{};
   if(cypherKey)
     cipherBox = factory.createCipher(*cypherKey);

@@ -7,12 +7,8 @@
 #include <iostream>
 #include <string>
 #include "Poco/Crypto/Crypto.h"
-#include "Poco/RandomStream.h"
 #include "Poco/DigestEngine.h"
-#include "Poco/HMACEngine.h"
 #include "Poco/SHA1Engine.h"
-#include "Poco/DigestStream.h"
-#include "Poco/MD5Engine.h"
 
 #include "Sender.h"
 #include "Recipient.h"
@@ -21,7 +17,7 @@
 
 void printTransactionResult(bool success);
 
-TEST_CASE( "Integrity", "[Tl]" ) {
+TEST_CASE( "Integrity", "" ) {
 
   namespace pc = Poco::Crypto;
 

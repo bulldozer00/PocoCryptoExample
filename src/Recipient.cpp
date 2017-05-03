@@ -28,19 +28,19 @@ bool Recipient::verifyMessage(const ChannelMsg& cm) {
   //extract the ClearText msg
   std::string rawTextmsg = cm.getTheTextMessage();
 
-  //extract the received signature
-  std::string rxdSig = cm.getTheFingerPrint();
+  //extract the received fingerprint
+  std::string rxdFingerPrint = cm.getTheFingerPrint();
 
-  //hash the message
+  //hash the Rxd message
   _sha1Engine.reset();
   _sha1Engine.update(rawTextmsg);
-  _msgSig = _sha1Engine.digestToHex(_sha1Engine.digest());
+  _msgFingerPrint = _sha1Engine.digestToHex(_sha1Engine.digest());
 
   std::cout << "Locally Generated MsgFingerPrint (hex): "
-            << _msgSig << "\n";
+            << _msgFingerPrint << "\n";
 
   //compute a local signature on the ClearText msg
-  if(_msgSig == rxdSig)
+  if(_msgFingerPrint == rxdFingerPrint)
     return true;
   else
     return false;

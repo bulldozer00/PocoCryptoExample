@@ -17,7 +17,7 @@ void Sender::hashMsg(const std::string& msgToSend) {
   _sha1Engine.update(msgToSend);
 }
 
-std::string Sender::signTheMessage() {
+std::string Sender::fingerPrintTheMessage() {
   std::string digest = _sha1Engine.digestToHex(_sha1Engine.digest());
   _msgFingerPrint = digest;
   return digest;
@@ -28,8 +28,12 @@ void Sender::setTheMessage(const std::string& msgToSend) {
   _msgFingerPrint.clear();
 }
 
-std::string Sender::getHashAlgorithm() const {
-  //return _sha1Engine.algorithm();
+bool Sender::sendChannelMsg(const ChannelMsg& cmsg, Recipient& receiver) {
+
+  std::cout << "Sender Transmitted This Channel Msg:" ;
+  cmsg.printContent();
+  return receiver.acceptChannelMsg(cmsg);
+
 }
 
 bool Sender::sendChannelMsg(const std::string& msgToSend, Recipient& receiver) {
@@ -67,15 +71,6 @@ bool Sender::sendAlteredChannelMsg(const std::string& msgToSend, Recipient& rece
   //no longer applies!
   //cmsg.setTheMessage(msgToSend);
   return sendChannelMsg(cmsg, receiver);
-}
-
-
-bool Sender::sendChannelMsg(const ChannelMsg& cmsg, Recipient& receiver) {
-
-  std::cout << "Sender Transmitted This Channel Msg:" ;
-  cmsg.printContent();
-  return receiver.acceptChannelMsg(cmsg);
-
 }
 
 

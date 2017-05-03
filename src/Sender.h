@@ -20,22 +20,20 @@ public:
 
   Sender();
 
-  void hashMsg(const std::string& msgToSend);
-
-  std::string getHashAlgorithm() const;
-
-  std::string signTheMessage();
-
   void setTheMessage(const std::string& msgToSend);
+  void hashMsg(const std::string& msgToSend);
+  std::string fingerPrintTheMessage();
 
   bool sendChannelMsg(const std::string& msgToSend, Recipient& receiver);
+  bool sendChannelMsg(const ChannelMsg& cmsg, Recipient& receiver);
 
+  //Simulate a man in the middle
   bool sendAlteredChannelMsg(const std::string& msgToSend, Recipient& receiver);
 
-  bool sendChannelMsg(const ChannelMsg& cmsg, Recipient& receiver);
 
 private:
 
+  //Msg, fngerprint, hash engine
   std::string _msgTxt { };
   std::string _msgFingerPrint { };
   Poco::SHA1Engine _sha1Engine { };

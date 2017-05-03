@@ -18,7 +18,8 @@ public:
   bool acceptChannelMsg(const ChannelMsg& cm);
 
 private:
-  std::string _msgSig { };
+
+  std::string _msgFingerPrint { };
   Poco::SHA1Engine _sha1Engine;
 
   bool verifyMessage(const ChannelMsg& cm);
