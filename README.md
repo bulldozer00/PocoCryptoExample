@@ -11,4 +11,6 @@ $ cd PocoCryptoExample
 
 $ git clone https://github.com/bulldozer00/PocoCryptoExample.git
 
-In Eclipse, select File/Import/General "import an existing project workspace"
+In Eclipse, select File/Import/General "import an existing project workspace". After the immport, right-click on the project
+root directory and select "build"
+
