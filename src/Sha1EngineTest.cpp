@@ -3,14 +3,15 @@
 // Author      : bulldozer00.com
 //============================================================================
 
+#define CATCH_CONFIG_COLOUR_NONE
 #include "catch.hpp"
+
 #include <iostream>
 #include <string>
 #include "Poco/Crypto/Cipher.h"
 #include "Poco/SHA1Engine.h"
-#define CATCH_CONFIG_COLOUR_NONE
 
-TEST_CASE( "Sha1Engine", "[Tl]" ) {
+TEST_CASE( "Sha1Engine", "[SEl]" ) {
 
   namespace pc = Poco::Crypto;
   //Program-wide init the lib

@@ -37,6 +37,7 @@ TEST_CASE( "Hash", "[Tl]" ) {
   std::string message1("This is a top-secret message.");
   std::string message2("Don't tell anyone!");
   std::string passphrase("s3cr3t"); // HMAC needs a passphrase
+
   HMACEngine<SHA1Engine> hmac(passphrase); // we'll compute a HMAC-SHA1
   hmac.update(message1);
   hmac.update(message2);

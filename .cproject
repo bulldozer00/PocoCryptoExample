@@ -53,10 +53,13 @@
 							</tool>
 						</toolChain>
 					</folderInfo>
+					<fileInfo id="cdt.managedbuild.config.gnu.exe.debug.437493885.1530315959" name="Sha1EngineTest.cpp" rcbsApplicability="disable" resourcePath="src/Sha1EngineTest.cpp" toolsToInvoke="cdt.managedbuild.tool.gnu.cpp.compiler.exe.debug.533355111.941816013">
+						<tool id="cdt.managedbuild.tool.gnu.cpp.compiler.exe.debug.533355111.941816013" name="GCC C++ Compiler" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.exe.debug.533355111"/>
+					</fileInfo>
 					<fileInfo id="cdt.managedbuild.config.gnu.exe.debug.437493885.640186167" name="Crypto.h" rcbsApplicability="disable" resourcePath="unused/Crypto.h" toolsToInvoke=""/>
 					<sourceEntries>
-						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src"/>
-						<entry excluding="Crypto.h|Crypto.cpp|CryptoTest-1.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="unused"/>
+						<entry excluding="Sha1EngineTest.cpp|MsgIntegrityTest.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src"/>
+						<entry excluding="Crypto.h|CryptoTest-1.cpp|Crypto.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="unused"/>
 					</sourceEntries>
 				</configuration>
 			</storageModule>

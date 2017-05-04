@@ -3,7 +3,9 @@
 // Author      : bulldozer00.com
 //============================================================================
 
+#define CATCH_CONFIG_COLOUR_NONE
 #include "catch.hpp"
+
 #include <iostream>
 #include <string>
 #include "Poco/Crypto/Crypto.h"
@@ -13,11 +15,10 @@
 #include "Sender.h"
 #include "Recipient.h"
 #include "ChannelMessage.h"
-#define CATCH_CONFIG_COLOUR_NONE
 
 void printTransactionResult(bool success);
 
-TEST_CASE( "Integrity", "" ) {
+TEST_CASE( "Integrity", "I1" ) {
 
   namespace pc = Poco::Crypto;
 
