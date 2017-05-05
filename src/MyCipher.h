@@ -21,16 +21,22 @@ class MyCipher {
 public:
   MyCipher();
 
-  //Since we have owning raw pts, we need this for
+  //Since we have owning raw ptrs, we need this for
   //leak-free RAII
   ~MyCipher();
 
+  void encryptDecrypt();
+
+  void ioStream();
+
 private:
 
+  //You can get the key types supported by
+  //typing openssl -h in a terminal. There is a boatload of them
   const std::string KEY_TYPE{"aes-256-cbc"};
 
-  pc::CipherFactory& _factory;
   pc::CipherKey _cKey{KEY_TYPE};
+  pc::CipherFactory& _factory;
   pc::Cipher* _cipherBox{};
 
 };

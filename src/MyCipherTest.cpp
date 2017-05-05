@@ -16,5 +16,9 @@ TEST_CASE( "MyCipherTest", "MCT1" ) {
 
   MyCipher cipher{};
 
+  cipher.encryptDecrypt();
+
+  cipher.ioStream();
+
 }
 
