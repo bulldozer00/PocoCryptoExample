@@ -6,8 +6,11 @@
  */
 
 #include <iostream>
+#include <sstream>
+#include <iomanip>
 #include "MyCipher.h"
 #include "Poco/Crypto/CryptoStream.h"
+#include "Poco/Crypto/CipherKeyImpl.h"
 #include "Poco/FileStream.h"
 #include "Poco/StreamCopier.h"
 
@@ -19,6 +22,24 @@ _cipherBox(_factory.createCipher(_cKey)) {
 
   std::cout << "Key Name = " << _cKey.name() << "\n"
             << "Key Size = " << _cKey.keySize() * 8 << " bits\n";
+
+  const pc::CipherKeyImpl::ByteVec& byteVec = _cKey.getKey();
+
+  //Convert each char to a hex byte
+  std::ostringstream oss{"Key "}; 
+  for(char ch : byteVec) {
+
+    uint16_t hexByte =
+        static_cast<uint16_t>(ch) & 0xFF;
+
+    oss << std::hex << hexByte;
+
+  }
+
+  oss << "\n";
+
+  std::cout << oss.str();
+
 }
 
 void MyCipher::ioStream() {
