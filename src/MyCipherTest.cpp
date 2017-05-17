@@ -16,9 +16,17 @@ TEST_CASE( "MyCipherTest", "MCT1" ) {
 
   MyCipher cipher{};
 
-  cipher.encryptDecrypt();
+  const std::string clearText{"This is my secret information"};
 
-  cipher.ioStream();
+  std::string encryptedMsg{cipher.encryptClearTextMsg(clearText)};
+
+  std::string decryptedMsg{cipher.decryptCipherTextMsg(encryptedMsg)};
+
+  REQUIRE(decryptedMsg == clearText);
+
+  cipher.encryptFile();
+
+  cipher.decryptFile();
 
 }
 

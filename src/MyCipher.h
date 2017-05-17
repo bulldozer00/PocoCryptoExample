@@ -25,18 +25,34 @@ public:
   //leak-free RAII
   ~MyCipher();
 
-  void encryptDecrypt();
+  void encryptDecryptMsg(const std::string& clearText);
 
-  void ioStream();
+  //Encrypt a human-readable, ClearText message. Returns the
+  //CipherText version of the message
+  std::string encryptClearTextMsg(const std::string& msg);
+
+  //Decrypt a CipherText message. Returns the
+  //ClearText version of the message
+  std::string decryptCipherTextMsg(const std::string& msg);
+
+  //Encrypt a whole input file. The input file is *assumed*
+  //to be located at InOutTestFiles/ClearText.txt
+  void encryptFile();
+
+  //Encrypt a whole input file. The input file is *assumed*
+  //to be located at InOutTestFiles/ClearText.txt. The output
+  //data is witten to InOutTestFiles/ClearText.txt
+  void decryptFile();
 
 private:
 
   //You can get the key types supported by
-  //typing openssl -h in a terminal. There is a boatload of them
+  //typing "openssl -h" in a terminal. There is a boatload of them
   const std::string KEY_TYPE{"aes-256-cbc"};
 
-  pc::CipherKey _cKey{KEY_TYPE};
   pc::CipherFactory& _factory;
+  //Every Cipher requires a Key
+  pc::CipherKey _cKey;
   pc::Cipher* _cipherBox{};
 
 };
