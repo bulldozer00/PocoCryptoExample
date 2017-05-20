@@ -28,6 +28,7 @@ _cKey(KEY_TYPE), _cipherBox(_factory.createCipher(_cKey)) {
 
   //Convert each char to a hex byte
   std::ostringstream oss{"Cipher Key "};
+
   for(char ch : byteVec) {
 
     //Cast each char to a uint16_t
@@ -97,6 +98,8 @@ void MyCipher::decryptFile() {
 
 }
 
+//Encrypt a ClearText message. Returns the
+//CipherText version of the message
 std::string MyCipher::encryptClearTextMsg(const std::string& msg) {
 
   return _cipherBox->encryptString(msg, pc::Cipher::ENC_BASE64);
@@ -108,19 +111,9 @@ std::string MyCipher::encryptClearTextMsg(const std::string& msg) {
 std::string MyCipher::decryptCipherTextMsg(const std::string& msg) {
 
   return _cipherBox->decryptString(msg, pc::Cipher::ENC_BASE64);
-}
-
-
-void MyCipher::encryptDecryptMsg(const std::string& clearText) {
-
-  std::string encrypted =
-      _cipherBox->encryptString(clearText, pc::Cipher::ENC_BASE64);
-  std::string decrypted =
-      _cipherBox->decryptString(encrypted, pc::Cipher::ENC_BASE64);
-
-  std::cout << (clearText == decrypted) << "\n";
 
 }
+
 
 MyCipher::~MyCipher() {
 

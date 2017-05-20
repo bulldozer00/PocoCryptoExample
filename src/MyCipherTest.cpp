@@ -12,7 +12,7 @@
 #include <iostream>
 #include <string>
 
-TEST_CASE( "MyCipherTest", "MCT1" ) {
+TEST_CASE( "MyCipherTest1", "MCT1" ) {
 
   MyCipher cipher{};
 
@@ -27,6 +27,29 @@ TEST_CASE( "MyCipherTest", "MCT1" ) {
   cipher.encryptFile();
 
   cipher.decryptFile();
+
+}
+
+TEST_CASE( "MyCipherTest2", "MCT2" ) {
+
+  MyCipher cipher{};
+
+  const std::string clearText{"This is my secret information"};
+
+  std:: cout << "Unencrypted ClearText Message: "
+             << clearText << "\n";
+
+  std::string encryptedMsg{cipher.encryptClearTextMsg(clearText)};
+
+  std:: cout << "Encrypted ClearText Message: "
+             << encryptedMsg << "\n";
+
+  std::string decryptedMsg{cipher.decryptCipherTextMsg(encryptedMsg)};
+
+  std:: cout << "UnEncrypted CipherText Message: "
+             << decryptedMsg << "\n";
+
+  REQUIRE(decryptedMsg == clearText);
 
 }
 
